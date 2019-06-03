@@ -65,7 +65,6 @@ public class ConfigHelper {
         return PropsUtil.getString(CONFIG_PROPS, FrameworkConstant.JDBC_PASSWORD);
     }
 
-
     /**
      * APP_BASE_PACKAGE
      *
@@ -102,4 +101,7 @@ public class ConfigHelper {
         return PropsUtil.getString(CONFIG_PROPS, FrameworkConstant.APP_ASSET_PATH, "/asset/");
     }
 
+    public static String getString(String param) {
+        return PropsUtil.getString(CONFIG_PROPS, param);
+    }
 }

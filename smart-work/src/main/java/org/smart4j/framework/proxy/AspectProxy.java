@@ -29,10 +29,14 @@ public abstract class AspectProxy implements Proxy {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            throwException(targetClass, targetMethod, methodParams);
         } finally {
             end();
         }
         return result;
+    }
+
+    public void throwException(Class<?> targetClass, Method targetMethod, Object[] methodParams) {
     }
 
     public void end() {

@@ -29,4 +29,9 @@ public class ServiceAspect extends AspectProxy {
         System.out.println("service,this is proxy after");
         System.out.println(new Date());
     }
+
+    @Override
+    public void throwException(Class<?> targetClass, Method targetMethod, Object[] methodParams) {
+
+    }
 }

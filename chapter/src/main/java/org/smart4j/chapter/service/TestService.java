@@ -1,7 +1,13 @@
 package org.smart4j.chapter.service;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import org.smart4j.framework.annotation.Service;
+import org.smart4j.framework.annotation.Transaction;
 import org.smart4j.framework.bean.Param;
+import org.smart4j.framework.dao.DataSourceHelper;
 
 /**
  * @Version: 1.0
@@ -12,9 +18,20 @@ import org.smart4j.framework.bean.Param;
 @Service
 public class TestService {
 
+    @Transaction
     public String sayHello(Param param) {
-        System.out.println("hello " + param.getString("name") + ",how are you");
-        return "hello " + param.getString("name") + ",how are you";
+        String sql = "insert into javaboy(name,password) values('javaboyok','123456a')";
+        int i = 0;
+        Connection connection = DataSourceHelper.getConnection();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            i = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e.getMessage(),e);
+        }
+        return i + "";
     }
 
 }
