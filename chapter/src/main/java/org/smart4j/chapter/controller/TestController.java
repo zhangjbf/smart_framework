@@ -6,6 +6,8 @@ import org.smart4j.framework.annotation.Controller;
 import org.smart4j.framework.annotation.Inject;
 import org.smart4j.framework.bean.Data;
 import org.smart4j.framework.bean.Param;
+import org.smart4j.framework.bean.View;
+import org.smart4j.framework.helper.UploadHelper;
 
 /**
  * @Version: 1.0
@@ -24,6 +26,20 @@ public class TestController {
         String s = testService.sayHello(param);
         Data data = new Data(s);
         return data;
+    }
+
+    @Action(requestMethod = "get", requestPath = "/index")
+    public View index() {
+        View view = new View();
+        view.setPath("index.jsp");
+        view.addModel("name", "javaboy");
+        return view;
+    }
+
+    @Action(requestMethod = "post", requestPath = "/upload")
+    public Data index(Param param) {
+        UploadHelper.uploadFile("G:\\",param.getFileParamList());
+        return new Data("javaboy");
     }
 
 }

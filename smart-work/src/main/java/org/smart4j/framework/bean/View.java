@@ -1,5 +1,6 @@
 package org.smart4j.framework.bean;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -14,15 +15,23 @@ public class View {
 
     private String              path;
 
-    private Map<String, Object> model;
+    private Map<String, Object> model = new HashMap<>();
 
     public View(String path, Map<String, Object> model) {
         this.path = path;
         this.model = model;
     }
 
+    public View() {
+    }
+
     public View addModel(String key, Object value) {
         model.put(key, value);
+        return this;
+    }
+
+    public View setPath(String path) {
+        this.path = path;
         return this;
     }
 

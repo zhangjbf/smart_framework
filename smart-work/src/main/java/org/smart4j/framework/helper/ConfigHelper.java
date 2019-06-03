@@ -101,6 +101,18 @@ public class ConfigHelper {
         return PropsUtil.getString(CONFIG_PROPS, FrameworkConstant.APP_ASSET_PATH, "/asset/");
     }
 
+    /**
+     * 获取APP_UPLOAD_LIMIT
+     *
+     * @param
+     * @return
+     * @author jiabin.zhang 张佳宾
+     * @date 2019/6/2
+     */
+    public static int getAppUploadLimit() {
+        return PropsUtil.getInt(CONFIG_PROPS, FrameworkConstant.APP_UPLOAD_LIMIT, 5);
+    }
+
     public static String getString(String param) {
         return PropsUtil.getString(CONFIG_PROPS, param);
     }

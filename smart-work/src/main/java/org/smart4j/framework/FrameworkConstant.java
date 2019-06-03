@@ -30,4 +30,9 @@ public interface FrameworkConstant {
     String APP_ASSET_PATH   = "app.asset_path";
 
     String UTF_8            = "utf-8";
+    /**
+     * 上传文件大小
+     */
+    String APP_UPLOAD_LIMIT = "app.upload_limit";
+
 }
